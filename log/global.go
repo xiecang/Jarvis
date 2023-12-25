@@ -56,3 +56,8 @@ func Error(v ...any) {
 func Errorf(format string, v ...any) {
 	global.Errorf(format, v...)
 }
+
+// With log
+func With(fields ...LogField) Logger {
+	return global.With(fields...)
+}
