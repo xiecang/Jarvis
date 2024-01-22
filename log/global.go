@@ -3,6 +3,8 @@ package log
 // global
 var global Logger
 
+const actionKey = "action"
+
 func init() {
 	global = DefaultLogger
 }
@@ -60,4 +62,9 @@ func Errorf(format string, v ...any) {
 // With log
 func With(fields ...LogField) Logger {
 	return global.With(fields...)
+}
+
+// Action log
+func Action(action string) Logger {
+	return global.With(LogField{Key: actionKey, Value: action})
 }

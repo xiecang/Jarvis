@@ -15,6 +15,7 @@ type LogField struct {
 }
 
 // Field returns a LogField for the given key and value.
+// value must be string, int ... basic value
 func Field(key string, value any) LogField {
 	switch val := value.(type) {
 	case error:
