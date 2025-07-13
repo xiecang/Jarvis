@@ -6,7 +6,6 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/gin-gonic/gin"
 	"github.com/xiecang/jarvis/server"
 )
 
@@ -23,7 +22,7 @@ type Server struct {
 type Options func(*Server)
 
 // NewServer creates a new server instance with default settings
-func NewServer(e *gin.Engine, addr string, options ...Options) *Server {
+func NewServer(e http.Handler, addr string, options ...Options) *Server {
 	ser := Server{
 		ShutdownTimeout: DefaultShutdownTimeout,
 		srv: &http.Server{
